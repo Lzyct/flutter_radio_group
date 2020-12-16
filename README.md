@@ -34,7 +34,7 @@ Import it:
                   }),
 ```
 
-## Selected Index Programmatically
+## Select Index Programmatically
 ```dart
 var _key = GlobalKey<RadioGroupState>();
 
