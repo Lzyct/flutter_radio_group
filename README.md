@@ -42,7 +42,7 @@ var _key = GlobalKey<RadioGroupState>();
 _key.currentState.setIndexSelected(3);
 
 FlutterRadioGroup(
-				  key:_key
+		  key:_key
                   titles: _listHorizontal,
                   labelStyle: TextStyle(color: Colors.white38),
                   labelVisible: true,
