@@ -35,6 +35,8 @@ class FlutterRadioGroup extends StatefulWidget {
 class FlutterRadioGroupState extends State<FlutterRadioGroup> {
   var _defaultValue = 0;
 
+  /// Set default selected 0
+
   @override
   void initState() {
     super.initState();
@@ -54,6 +56,8 @@ class FlutterRadioGroupState extends State<FlutterRadioGroup> {
             style: widget.labelStyle,
           ),
         ),
+
+        /// Display widget from Selected Orientation, default is Vertical
         widget.orientation == RGOrientation.VERTICAL
             ? _vertical()
             : _horizontal()
@@ -61,6 +65,7 @@ class FlutterRadioGroupState extends State<FlutterRadioGroup> {
     );
   }
 
+  /// Horizontal View
   _horizontal() {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
@@ -104,6 +109,7 @@ class FlutterRadioGroupState extends State<FlutterRadioGroup> {
     );
   }
 
+  /// Vertical View
   _vertical() {
     return Column(
       children: Iterable<int>.generate(widget.titles.length)
@@ -144,6 +150,7 @@ class FlutterRadioGroupState extends State<FlutterRadioGroup> {
     );
   }
 
+  /// Update index programmatically
   setIndexSelected(int index) {
     setState(() {
       if (index < widget.titles.length) _defaultValue = index;

@@ -1,4 +1,3 @@
-
 # AnimatedSearchBar  [![pub package](https://img.shields.io/pub/v/flutter_radio_group.svg)](https://pub.dev/packages/flutter_radio_group) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  [![Build Status](https://travis-ci.com/ukieTux/flutter_radio_group.svg?branch=main)](https://travis-ci.com/ukieTux/flutter_radio_group)
 A Beautiful and Simple Radio Group widget for Flutter. It can be fully customized with label, titles, labelStyle, titleStyle, orientation, etc. It also maintains onChanged state.
 
@@ -34,6 +33,31 @@ Import it:
                     });
                   }),
 ```
+
+## Selected Index Programmatically
+```dart
+var _key = GlobalKey<RadioGroupState>();
+
+/// Update selected radio
+_key.currentState.setIndexSelected(3);
+
+FlutterRadioGroup(
+				  key:_key
+                  titles: _listHorizontal,
+                  labelStyle: TextStyle(color: Colors.white38),
+                  labelVisible: true,
+                  label: "This is label radio",
+                  activeColor: Colors.blue,
+                  titleStyle: TextStyle(fontSize: 14),
+                  defaultSelected: _indexHorizontal,
+                  orientation: RGOrientation.HORIZONTAL,
+                  onChanged: (index) {
+                    setState(() {
+                      _indexHorizontal = index;
+                    });
+                  }),
+```
+
   ## Available Parameters
 | Param | isRequired |
 |--|--|
