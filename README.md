@@ -1,5 +1,5 @@
 
-# AnimatedSearchBar  [![pub package](https://img.shields.io/pub/v/flutter_radio_group.svg)](https://pub.dev/packages/animated_search_bar) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  [![Build Status](https://travis-ci.com/ukieTux/animated_search_bar.svg?branch=master)](https://travis-ci.com/ukieTux/animated_search_bar)
+# AnimatedSearchBar  [![pub package](https://img.shields.io/pub/v/flutter_radio_group.svg)](https://pub.dev/packages/flutter_radio_group) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  [![Build Status](https://travis-ci.com/ukieTux/flutter_radio_group.svg?branch=main)](https://travis-ci.com/ukieTux/flutter_radio_group)
 A Beautiful and Simple Radio Group widget for Flutter. It can be fully customized with label, titles, labelStyle, titleStyle, orientation, etc. It also maintains onChanged state.
 
   ## Getting Started
@@ -13,7 +13,7 @@ Import it:
  ```
 
  ## Usage Examples
- ![Farmers Market Finder Demo](https://github.com/ukieTux/animated_search_bar/blob/master/gifs/demo.gif)
+ ![Farmers Market Finder Demo](https://github.com/ukieTux/flutter_radio_group/blob/main/gifs/demo.gif)
  ```dart
 
  var _listHorizontal = ["Horizontal 1", "Horizontal 2", "Horizontal 3"];
