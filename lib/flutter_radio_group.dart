@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+/// Orientation Options
 enum RGOrientation { VERTICAL, HORIZONTAL }
 
 class FlutterRadioGroup extends StatefulWidget {
@@ -15,6 +16,7 @@ class FlutterRadioGroup extends StatefulWidget {
   final Color activeColor;
   final TextStyle titleStyle;
 
+  /// Define parameter widget
   const FlutterRadioGroup(
       {Key key,
       this.orientation = RGOrientation.VERTICAL,
@@ -31,12 +33,11 @@ class FlutterRadioGroup extends StatefulWidget {
   @override
   FlutterRadioGroupState createState() => FlutterRadioGroupState();
 }
-
+/// Set state as Public to access update index radio group
 class FlutterRadioGroupState extends State<FlutterRadioGroup> {
   var _defaultValue = 0;
 
   /// Set default selected 0
-
   @override
   void initState() {
     super.initState();
@@ -67,6 +68,7 @@ class FlutterRadioGroupState extends State<FlutterRadioGroup> {
 
   /// Horizontal View
   _horizontal() {
+    /// Use Scrollview to fix overlap widget
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(

@@ -1,6 +1,6 @@
 name: flutter_radio_group
-description: Radio group library for flutter
-version: 1.0.0
+description: A Beautiful and Simple Radio Group widget for Flutter. It can be fully customized with label, titles, labelStyle, titleStyle, orientation, etc. It also maintains onChanged state.
+version: 1.0.1
 author: Mudassir<hey.mudassir@gmail.com>
 homepage: https://github.com/ukieTux/flutter_radio_group
 
