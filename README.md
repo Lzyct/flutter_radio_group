@@ -73,6 +73,7 @@ Set **defaultSelected** to **-1** to empty selected radio group
 | **bool** labelVisible (true) | No |
 | **Color** activeColor (PrimaryColor) | No |
 | **Function(int)** onChanged | No |
+
 ---
 
 <h3 align="center">Buy me coffee if you love my works ☕️</h3> <p align="center">
