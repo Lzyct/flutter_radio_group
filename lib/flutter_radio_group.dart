@@ -33,6 +33,7 @@ class FlutterRadioGroup extends StatefulWidget {
   @override
   FlutterRadioGroupState createState() => FlutterRadioGroupState();
 }
+
 /// Set state as Public to access update index radio group
 class FlutterRadioGroupState extends State<FlutterRadioGroup> {
   var _defaultValue = 0;

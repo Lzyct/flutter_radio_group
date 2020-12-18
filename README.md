@@ -1,4 +1,4 @@
-# AnimatedSearchBar  [![pub package](https://img.shields.io/pub/v/flutter_radio_group.svg)](https://pub.dev/packages/flutter_radio_group) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  [![Build Status](https://travis-ci.com/ukieTux/flutter_radio_group.svg?branch=main)](https://travis-ci.com/ukieTux/flutter_radio_group)
+# Flutter Radio Group [![pub package](https://img.shields.io/pub/v/flutter_radio_group.svg)](https://pub.dev/packages/flutter_radio_group) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  [![Build Status](https://travis-ci.com/ukieTux/flutter_radio_group.svg?branch=main)](https://travis-ci.com/ukieTux/flutter_radio_group)
 A Beautiful and Simple Radio Group widget for Flutter. It can be fully customized with label, titles, labelStyle, titleStyle, orientation, etc. It also maintains onChanged state.
 
   ## Getting Started
@@ -11,10 +11,11 @@ Import it:
  import'package:flutter_radio_group/flutter_radio_group.dart';
  ```
 
- ## Usage Examples
+## Demo
  ![Farmers Market Finder Demo](https://github.com/ukieTux/flutter_radio_group/blob/main/gifs/demo.gif)
- ```dart
 
+ ## Usage Examples
+ ```dart
  var _listHorizontal = ["Horizontal 1", "Horizontal 2", "Horizontal 3"];
  var _indexHorizontal = 0;
 
@@ -57,6 +58,8 @@ FlutterRadioGroup(
                     });
                   }),
 ```
+## Tips
+Set **defaultSelected** to **-1** to empty selected radio group
 
   ## Available Parameters
 | Param | isRequired |
@@ -70,8 +73,8 @@ FlutterRadioGroup(
 | **bool** labelVisible (true) | No |
 | **Color** activeColor (PrimaryColor) | No |
 | **Function(int)** onChanged | No |
-
 ---
+
 <h3 align="center">Buy me coffee if you love my works ☕️</h3> <p align="center">
   <a href="https://ko-fi.com/ukietux" target="_blank">
     <img src="https://help.ko-fi.com/system/photos/3604/0095/9793/logo_circle.png" alt="ko-fi" style="vertical-align:top; margin:8px" height="40">

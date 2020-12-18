@@ -14,6 +14,9 @@ class _MyAppState extends State<MyApp> {
   var _listHorizontal = ["Horizontal 1", "Horizontal 2", "Horizontal 3"];
   var _listVertical = ["Vertical 1", "Vertical 2", "Vertical 3"];
 
+  var _keyVertical = GlobalKey<FlutterRadioGroupState>();
+  var _keyHorizontal = GlobalKey<FlutterRadioGroupState>();
+
   var _indexHorizontal = 0;
   var _indexVertical = 1;
 
@@ -32,9 +35,10 @@ class _MyAppState extends State<MyApp> {
               children: [
                 Text(
                   "Vertical -> index selected $_indexVertical - ${_listVertical[_indexVertical]}",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 16),
                 ),
                 FlutterRadioGroup(
+                    key: _keyVertical,
                     titles: _listVertical,
                     defaultSelected: _indexVertical,
                     onChanged: (index) {
@@ -42,13 +46,25 @@ class _MyAppState extends State<MyApp> {
                         _indexVertical = index;
                       });
                     }),
-                SizedBox(height: 16),
+                FlatButton(
+                    color: Colors.cyan,
+                    onPressed: () {
+                      _keyVertical.currentState.setIndexSelected(2);
+                      setState(() {
+                        _indexVertical = 2;
+                      });
+                    },
+                    child: Text("Select index 2")),
+                Divider(
+                  height: 32,
+                ),
                 Text(
                   "Horizontal -> index selected $_indexHorizontal - ${_listHorizontal[_indexHorizontal]}",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 16),
                 ),
                 SizedBox(height: 16),
                 FlutterRadioGroup(
+                    key: _keyHorizontal,
                     titles: _listHorizontal,
                     labelStyle: TextStyle(color: Colors.pink),
                     defaultSelected: _indexHorizontal,
@@ -59,6 +75,15 @@ class _MyAppState extends State<MyApp> {
                         _indexHorizontal = index;
                       });
                     }),
+                FlatButton(
+                    color: Colors.amber,
+                    onPressed: () {
+                      _keyHorizontal.currentState.setIndexSelected(1);
+                      setState(() {
+                        _indexHorizontal = 1;
+                      });
+                    },
+                    child: Text("Select index 1")),
               ],
             ),
           ),
