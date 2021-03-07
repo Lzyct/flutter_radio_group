@@ -75,8 +75,10 @@ class _MyAppState extends State<MyApp> {
                         _indexHorizontal = index;
                       });
                     }),
-                FlatButton(
-                    color: Colors.amber,
+                TextButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.amber)
+                    ),
                     onPressed: () {
                       _keyHorizontal.currentState.setIndexSelected(1);
                       setState(() {

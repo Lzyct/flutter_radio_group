@@ -8,19 +8,19 @@ class FlutterRadioGroup extends StatefulWidget {
   final RGOrientation orientation;
 
   final List<String> titles;
-  final String label;
+  final String? label;
   final TextStyle labelStyle;
   final int defaultSelected;
-  final Function(int) onChanged;
+  final Function(int?)? onChanged;
   final bool labelVisible;
-  final Color activeColor;
+  final Color? activeColor;
   final TextStyle titleStyle;
 
   /// Define parameter widget
   const FlutterRadioGroup(
-      {Key key,
+      {Key? key,
       this.orientation = RGOrientation.VERTICAL,
-      @required this.titles,
+      required this.titles,
       this.label,
       this.labelStyle = const TextStyle(fontSize: 12),
       this.onChanged,
@@ -36,7 +36,7 @@ class FlutterRadioGroup extends StatefulWidget {
 
 /// Set state as Public to access update index radio group
 class FlutterRadioGroupState extends State<FlutterRadioGroup> {
-  var _defaultValue = 0;
+  int? _defaultValue = 0;
 
   /// Set default selected 0
   @override
@@ -84,10 +84,10 @@ class FlutterRadioGroupState extends State<FlutterRadioGroup> {
                     groupValue: _defaultValue,
                     activeColor:
                         widget.activeColor ?? Theme.of(context).primaryColor,
-                    onChanged: (value) {
+                    onChanged: (dynamic value) {
                       setState(() {
                         _defaultValue = value;
-                        widget.onChanged(_defaultValue);
+                        widget.onChanged!(_defaultValue);
                       });
                     },
                   ),
@@ -97,7 +97,7 @@ class FlutterRadioGroupState extends State<FlutterRadioGroup> {
                   onTap: () {
                     setState(() {
                       _defaultValue = index;
-                      widget.onChanged(_defaultValue);
+                      widget.onChanged!(_defaultValue);
                     });
                   },
                   child: Text(
@@ -125,10 +125,10 @@ class FlutterRadioGroupState extends State<FlutterRadioGroup> {
                       groupValue: _defaultValue,
                       activeColor:
                           widget.activeColor ?? Theme.of(context).primaryColor,
-                      onChanged: (value) {
+                      onChanged: (dynamic value) {
                         setState(() {
                           _defaultValue = value;
-                          widget.onChanged(_defaultValue);
+                          widget.onChanged!(_defaultValue);
                         });
                       },
                     ),
@@ -138,7 +138,7 @@ class FlutterRadioGroupState extends State<FlutterRadioGroup> {
                     onTap: () {
                       setState(() {
                         _defaultValue = index;
-                        widget.onChanged(_defaultValue);
+                        widget.onChanged!(_defaultValue);
                       });
                     },
                     child: Text(

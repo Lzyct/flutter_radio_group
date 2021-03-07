@@ -11,3 +11,6 @@
 
 ## 1.0.3
 * Fix readme issue
+
+## 2.0.0
+* Migrate to Null Safety
