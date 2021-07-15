@@ -10,7 +10,7 @@ class FlutterRadioGroup extends StatefulWidget {
   final List<String> titles;
   final String? label;
   final TextStyle labelStyle;
-  final int defaultSelected;
+  final int? defaultSelected;
   final Function(int?)? onChanged;
   final bool labelVisible;
   final Color? activeColor;
@@ -24,7 +24,7 @@ class FlutterRadioGroup extends StatefulWidget {
       this.label,
       this.labelStyle = const TextStyle(fontSize: 12),
       this.onChanged,
-      this.defaultSelected = 0,
+      this.defaultSelected,
       this.labelVisible = true,
       this.activeColor,
       this.titleStyle = const TextStyle(fontSize: 14)})
@@ -68,87 +68,70 @@ class FlutterRadioGroupState extends State<FlutterRadioGroup> {
   }
 
   /// Horizontal View
-  _horizontal() {
+  Widget _horizontal() {
     /// Use Scrollview to fix overlap widget
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: Iterable<int>.generate(widget.titles.length).map((index) {
-            return Row(
-              children: [
-                SizedBox(
-                  width: 24,
-                  child: Radio(
-                    value: index,
-                    groupValue: _defaultValue,
-                    activeColor:
-                        widget.activeColor ?? Theme.of(context).primaryColor,
-                    onChanged: (dynamic value) {
-                      setState(() {
-                        _defaultValue = value;
-                        widget.onChanged!(_defaultValue);
-                      });
-                    },
-                  ),
-                ),
-                SizedBox(width: 4),
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      _defaultValue = index;
-                      widget.onChanged!(_defaultValue);
-                    });
-                  },
-                  child: Text(
-                    widget.titles[index],
-                    style: widget.titleStyle,
-                  ),
-                ),
-                SizedBox(width: 30),
-              ],
-            );
-          }).toList()),
+        return Row(
+          children: [
+            SizedBox(
+              width: 24,
+              child: Radio(
+                value: index,
+                groupValue: _defaultValue,
+                activeColor:
+                    widget.activeColor ?? Theme.of(context).primaryColor,
+                onChanged: (int? value) {
+                  setState(() {
+                    _defaultValue = value;
+                    widget.onChanged!(_defaultValue);
+                  });
+                },
+              ),
+            ),
+            const SizedBox(width: 4),
+            InkWell(
+              onTap: () {
+                setState(() {
+                  _defaultValue = index;
+                  widget.onChanged!(_defaultValue);
+                });
+              },
+              child: Text(
+                widget.titles[index],
+                style: widget.titleStyle,
+              ),
+            ),
+            const SizedBox(width: 30),
+          ],
+        );
+      }).toList()),
     );
   }
 
   /// Vertical View
-  _vertical() {
+  Widget _vertical() {
     return Column(
       children: Iterable<int>.generate(widget.titles.length)
-          .map((index) => Row(
-                children: [
-                  SizedBox(
-                    width: 24,
-                    child: Radio(
-                      value: index,
-                      groupValue: _defaultValue,
-                      activeColor:
-                          widget.activeColor ?? Theme.of(context).primaryColor,
-                      onChanged: (dynamic value) {
-                        setState(() {
-                          _defaultValue = value;
-                          widget.onChanged!(_defaultValue);
-                        });
-                      },
-                    ),
-                  ),
-                  SizedBox(width: 4),
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        _defaultValue = index;
-                        widget.onChanged!(_defaultValue);
-                      });
-                    },
-                    child: Text(
-                      widget.titles[index],
-                      style: widget.titleStyle,
-                    ),
-                  ),
-                  SizedBox(width: 30),
-                ],
-              ))
+          .map(
+            (index) => RadioListTile(
+              title: Text(
+                widget.titles[index],
+                style: widget.titleStyle,
+              ),
+              value: index,
+              groupValue: _defaultValue,
+              activeColor: widget.activeColor ?? Theme.of(context).primaryColor,
+              onChanged: (int? value) {
+                setState(() {
+                  _defaultValue = value;
+                  widget.onChanged!(_defaultValue);
+                });
+              },
+            ),
+          )
           .toList(),
     );
   }
